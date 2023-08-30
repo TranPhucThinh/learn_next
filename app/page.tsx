@@ -1,5 +1,7 @@
+'use client'
+
 import { Metadata } from 'next'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Next.js',
@@ -7,10 +9,12 @@ export const metadata: Metadata = {
 
 // `app/page.tsx` is the UI for the `/` URL
 export default function Page() {
+  const router = useRouter()
   return (
     <>
-      <Link href="/dashboard">Dashboard</Link>
-      <h1>Hello, Home page!</h1>
+      <button type="button" onClick={() => router.push('/dashboard')}>
+        Dashboard
+      </button>
     </>
   )
 }
